@@ -16,10 +16,10 @@ def sneakers():
 @sneakers_blueprint.route("/sneakers/new", methods=['GET'])
 def new_sneaker():
     brands = brand_repository.select_all()
-    return render_template("sneakers/new.html", all_sneakers = sneakers)
+    return render_template("sneakers/new.html", all_brands = brands)
 
 # CREATE
-@sneakers_blueprint.route("/sneakers",  methods=['POST'])
+@sneakers_blueprint.route("/sneakers", methods=['POST'])
 def create_sneaker():
     model       = request.form['model']
     brand_id    = request.form['brand_id']
@@ -51,12 +51,12 @@ def update_sneaker(id):
     price       = request.form['price']
     listed      = request.form['listed']
     brand       = brand_repository.select(brand_id)
-    sneaker        = sneaker(model, brand, price, listed, id)
+    sneaker     = Sneaker(model, brand, price, listed, id)
     sneaker_repository.update(sneaker)
     return redirect('/sneakers')
 
 # DELETE
-@sneakers_blueprint.route("/snneakers/<id>/delete", methods=['POST'])
+@sneakers_blueprint.route("/sneakers/<id>/delete", methods=['POST'])
 def delete_sneaker(id):
     sneaker_repository.delete(id)
     return redirect('/sneakers')

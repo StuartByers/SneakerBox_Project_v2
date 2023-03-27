@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div>
+    <p>{{sneaker.model}}</p>
+    <hr>
+    <p>{{sneaker.brand.name}}</p>
+    <p>{{sneaker.price}}</p>
+    <p>listed? {{sneaker.listed}}</p>
+    <p><a href="/sneakers/{{sneaker.id}}/edit">Edit</a></p>
+  </div>
+
+{% endblock %}

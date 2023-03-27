@@ -1,8 +1,8 @@
 class Sneaker:
 
-    def __init__(self, model, user, price, listed = False,  id = None):
+    def __init__(self, model, brand, price, listed = False,  id = None):
         self.model = model
-        self.user = user
+        self.brand = brand
         self.price = price
         self.listed = listed
         self.id = id

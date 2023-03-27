@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/sneakers/{{sneaker.id}}" method="post">
+  <div>
+    <label for="model">Model:</label>
+    <input type="text" id="model" name="model" value="{{sneaker.model}}" required>
+  </div>
+
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" value="{{sneaker.price}}" required>
+  </div>
+
+  <div>
+    <label for="listed">listed:</label>
+    <select id="listed" name="listed">
+
+      <option value="true"
+        {% if sneaker.listed == True %} selected="selected" {% endif %}>
+        True
+      </option>
+
+      <option value="false"
+        {% if sneaker.listed == False %} selected="selected" {% endif %}>
+        False
+      </option>
+
+    </select>
+  </div>
+
+  <div>
+    <label for="brand">Brand:</label>
+    <select id="brand" name="brand_id">
+      {% for brand in all_brands %}
+        <option value="{{ brand.id }}"
+          {% if sneaker.brand.id== brand.id %} selected="selected"{% endif %}>
+          {{ brand.name }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit">UPDATE SNEAKER</button>
+
+</form>
+
+{% endblock %}

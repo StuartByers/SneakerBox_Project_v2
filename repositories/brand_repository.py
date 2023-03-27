@@ -20,7 +20,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        brand = brand(row['name'], row['id'] )
+        brand = Brand(row['name'], row['id'])
         brands.append(brand)
     return brands
 
@@ -31,39 +31,36 @@ def select(id):
     values = [id]
     results = run_sql(sql, values)
 
-    # checking if the list returned by `run_sql(sql, values)` is empty. Empty lists are 'fasly' 
-    # Could alternativly have..
-    # if len(results) > 0 
     if results:
         result = results[0]
-        brand = brand(result['first_name'], result['last_name'], result['id'] )
+        brand = Brand(result['name'], result['id'])
     return brand
 
 
 def delete_all():
-    sql = "DELETE FROM users"
+    sql = "DELETE FROM brands"
     run_sql(sql)
 
 
 def delete(id):
-    sql = "DELETE FROM users WHERE id = %s"
+    sql = "DELETE FROM brands WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 
 
-def update(user):
-    sql = "UPDATE users SET (first_name, last_name) = (%s, %s) WHERE id = %s"
-    values = [user.first_name, user.last_name, user.id]
+def update(brand):
+    sql = "UPDATE brands SET (name) = (%s) WHERE id = %s"
+    values = [brand.name, brand.id]
     run_sql(sql, values)
 
-def tasks(user):
-    tasks = []
+def sneakers(brand):
+    sneakers = []
 
-    sql = "SELECT * FROM tasks WHERE user_id = %s"
-    values = [user.id]
+    sql = "SELECT * FROM sneakers WHERE brand_id = %s"
+    values = [brand.id]
     results = run_sql(sql, values)
 
     for row in results:
-        task = Task(row['description'], row['user_id'], row['duration'], row['completed'], row['id'] )
-        tasks.append(task)
-    return tasks
+        sneaker = sneaker(row['model'], row['brand_id'], row['price'], row['listed'], row['id'] )
+        sneakers.append(sneaker)
+    return sneakers

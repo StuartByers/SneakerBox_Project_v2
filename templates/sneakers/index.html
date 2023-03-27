@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% for sneaker in all_sneakers %}
+  <div class="sneaker">
+    <div class="content">
+      {{sneaker.brand.name}}
+      <div class="model">
+        <a href="/sneakers/{{sneaker.id}}">{{sneaker.model}}</a>
+        <span class="price">{{sneaker.price}} </span>
+      </div>
+      <div class="buttons">
+
+        <form class="delete-form" action="/sneakers/{{sneaker.id}}/delete" method="POST">
+          <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(255, 13, 13)" aria-hidden="true"></i></button>
+        </form>
+
+        {% if sneaker.listed == True %}
+          <i class="fa fa-check fa-2x" style="color:green" aria-hidden="true"></i>
+        {% else %}
+          <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
