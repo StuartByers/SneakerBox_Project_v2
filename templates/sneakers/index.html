@@ -3,8 +3,7 @@
 
 <div class="sneakers_container">
 {% for sneaker in all_sneakers %}
-  <div class="sneaker">
-    <div class="content">
+  <div class="sneaker_tile">
       <img src="{{sneaker.image_url}}">
       {{sneaker.brand.name}}
       <div class="model">
@@ -23,7 +22,6 @@
           <i class="fa fa-times fa-2x" aria-hidden="true"></i>
         {% endif %}
       </div>
-    </div>
   </div>
 {% endfor %}
 </div>
