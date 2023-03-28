@@ -11,6 +11,7 @@ CREATE TABLE sneakers (
   model VARCHAR(255),
   price INT,
   listed BOOLEAN,
+  image_url VARCHAR(2048)
   brand_id INT NOT NULL REFERENCES brands(id)
 );
 

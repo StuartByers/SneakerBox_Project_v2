@@ -5,7 +5,7 @@ from models.sneaker import Sneaker
 
 
 def save(brand):
-    sql = "INSERT INTO brands (first_name) VALUES (%s) RETURNING *"
+    sql = "INSERT INTO brands (name) VALUES (%s) RETURNING *"
     values = [brand.name]
     results = run_sql(sql, values)
     id = results[0]['id']

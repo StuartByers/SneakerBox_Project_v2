@@ -9,15 +9,23 @@
   <title>SneakerBox</title>
 </head>
 <body>
-  <header>
-    <nav>  
-      <ul class="menu">
-        <li><a href="/">HOME</a></li>
-        <li><a href="/sneakers">SNEAKERBOX</a></li>
-        <li><a href="/sneakers/new">ADD SNEAKER</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="/" id="navbar__logo">SNEAKERBOX</a>   
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">HOME</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/sneakers" class="navbar__links">SNEAKERBOX</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="/sneakers/new" class="button">ADD SNEAKER</a>
+          </li>
+        </ul>
+    </div>
+  </nav>  
+</header>
   <div class="container">
     {% block content %}
     {% endblock %}

@@ -2,6 +2,16 @@
 {% block content %}
 
 <form action="/sneakers/{{sneaker.id}}" method="post">
+  
+    <div>
+      <label for="brand">Brand:</label>
+      <select id="brand" name="brand_id">
+        {% for brand in all_brands %}
+          <option value="{{ brand.id }}">{{ brand.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  
   <div>
     <label for="model">Model:</label>
     <input type="text" id="model" name="model" value="{{sneaker.model}}" required>
@@ -26,18 +36,6 @@
         False
       </option>
 
-    </select>
-  </div>
-
-  <div>
-    <label for="brand">Brand:</label>
-    <select id="brand" name="brand_id">
-      {% for brand in all_brands %}
-        <option value="{{ brand.id }}"
-          {% if sneaker.brand.id== brand.id %} selected="selected"{% endif %}>
-          {{ brand.name }}
-        </option>
-      {% endfor %}
     </select>
   </div>
 
