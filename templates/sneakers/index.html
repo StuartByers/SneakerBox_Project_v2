@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+<div class="sneakers_container">
 {% for sneaker in all_sneakers %}
   <div class="sneaker">
     <div class="content">
+      <img src="{{sneaker.image_url}}">
       {{sneaker.brand.name}}
       <div class="model">
         <a href="/sneakers/{{sneaker.id}}">{{sneaker.model}}</a>
@@ -25,5 +26,6 @@
     </div>
   </div>
 {% endfor %}
+</div>
 
 {% endblock %}
