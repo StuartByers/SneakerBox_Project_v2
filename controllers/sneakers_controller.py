@@ -24,9 +24,10 @@ def create_sneaker():
     model       = request.form['model']
     brand_id    = request.form['brand_id']
     price       = request.form['price']
+    image_url   = request.form['image_url']
     listed      = request.form['listed']
     brand       = brand_repository.select(brand_id)
-    sneaker     = Sneaker(model, brand, price, listed)
+    sneaker     = Sneaker(model, brand, price, image_url, listed)
     sneaker_repository.save(sneaker)
     return redirect('/sneakers')
 
@@ -49,9 +50,10 @@ def update_sneaker(id):
     model       = request.form['model']
     brand_id    = request.form['brand_id']
     price       = request.form['price']
+    image_url   = request.form['image_url']
     listed      = request.form['listed']
     brand       = brand_repository.select(brand_id)
-    sneaker     = Sneaker(model, brand, price, listed, id)
+    sneaker     = Sneaker(model, brand, price, image_url, listed, id)
     sneaker_repository.update(sneaker)
     return redirect('/sneakers')
 
