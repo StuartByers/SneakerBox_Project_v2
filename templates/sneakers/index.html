@@ -1,29 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="sneakers_container">
-{% for sneaker in all_sneakers %}
-  <div class="sneaker_tile">
-      <img src="{{sneaker.image_url}}">
-      {{sneaker.brand.name}}
-      <div class="model">
-        <a href="/sneakers/{{sneaker.id}}">{{sneaker.model}}</a>
-        <span class="price">{{sneaker.price}} </span>
-      </div>
-      <div class="buttons">
+<div class="show__layout">
+  <div class="sneakers_container">
+  {% for sneaker in all_sneakers %}
+    <div class="sneaker_tile">
+          <img src="{{sneaker.image_url}}">
+          <div class="brand">{{sneaker.brand.name}}</div>
+          <div class="model">
+            <a href="/sneakers/{{sneaker.id}}">{{sneaker.model}}</a>
+          </div>
+          <span class="price">£{{sneaker.price}}</span>
+        <div class="buttons">
 
-        <form class="delete-form" action="/sneakers/{{sneaker.id}}/delete" method="POST">
-          <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(255, 13, 13)" aria-hidden="true"></i></button>
-        </form>
+          <form class="delete-form" action="/sneakers/{{sneaker.id}}/delete" method="POST">
+            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(0, 0, 0)" aria-hidden="true"></i></button>
+          </form>
 
-        {% if sneaker.listed == True %}
-          <i class="fa fa-check fa-2x" style="color:green" aria-hidden="true"></i>
-        {% else %}
-          <i class="fa fa-times fa-2x" aria-hidden="true"></i>
-        {% endif %}
-      </div>
+          {% if sneaker.listed == True %}
+            <i class="fa fa-check fa-2x" style="color:rgb(0, 0, 0)" aria-hidden="true"></i>
+          {% else %}
+            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+          {% endif %}
+        </div>
+    </div>
+  {% endfor %}
   </div>
-{% endfor %}
 </div>
 
 {% endblock %}

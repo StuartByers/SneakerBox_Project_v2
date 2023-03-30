@@ -2,28 +2,33 @@
 {% block content %}
 
 <form action="/sneakers/{{sneaker.id}}" method="post">
-  
+
     <div>
-      <label for="brand">Brand:</label>
-      <select id="brand" name="brand_id">
-        {% for brand in all_brands %}
-          <option value="{{ brand.id }}">{{ brand.name }}</option>
-        {% endfor %}
-      </select>
+      <label for="brand">[Brand]</label>
+        <select id="brand" name="brand_id">
+          {% for brand in all_brands %}
+            <option value="{{ brand.id }}">{{ brand.name }}</option>
+          {% endfor %}
+        </select>      
     </div>
   
   <div>
-    <label for="model">Model:</label>
+    <label for="model">[Model]</label>
     <input type="text" id="model" name="model" value="{{sneaker.model}}" required>
   </div>
 
   <div>
-    <label for="price">Price:</label>
+    <label for="price">[Price]</label>
     <input type="number" id="price" name="price" value="{{sneaker.price}}" required>
   </div>
 
   <div>
-    <label for="listed">listed:</label>
+    <label for="image_url">[Image URL] - Copy & Paste Image Address Here</label>
+    <input type="text" id="image_url" name="image_url" placeholder="image_url" required>
+  </div>
+
+  <div>
+    <label for="listed">[listed]</label>
     <select id="listed" name="listed">
 
       <option value="true"
@@ -38,8 +43,8 @@
 
     </select>
   </div>
+  <button class="activate__one" type="submit">UPDATE SNEAKER</button>
 
-  <button type="submit">UPDATE SNEAKER</button>
 
 </form>
 
