@@ -12,8 +12,16 @@
     font-family: 'Arial', sans-serif;
 }
 
+nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  padding: 0 1rem;
+}
+
 .navbar {
-    background: black
+    background: rgb(255, 255, 255)
 }
 
 .navbar__container {
@@ -26,7 +34,6 @@
 .container {
   padding: 50px;
 }
-
 
 input, select, button {
     font-size: 100%;
@@ -41,7 +48,6 @@ input, select, button {
   font-size: 50%;
 }
 
-
 .delete-form{
   display: inline;
 }
@@ -50,7 +56,7 @@ input, select, button {
   display: flex;
   padding: 10px;
   background-color: rgb(165, 165, 165);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .menu li a{
@@ -58,14 +64,14 @@ input, select, button {
 }
 
 .menu li a:visited{
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .menu li{
   padding-right: 10px;
   list-style: none;
-  color: white;
-  font-family: "Helvetica", arial, sans-serif; font-size: 14px;
+  color: black;
+  font-family: 'Arial', sans-serif; font-size: 14px;
 }
 
 .sneakers_container{
@@ -79,16 +85,18 @@ input, select, button {
   margin-right: 20px;
   align-items: center;
   justify-content: center;
+  padding: 15px;
 }
 
 .sneaker_tile img{
-  max-width: 200px;
+  max-width: 250px;
 }
 
 #navbar__logo {
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
+    font-weight: bold;
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
@@ -106,7 +114,7 @@ input, select, button {
 }
 
 .navbar__links {
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -171,9 +179,33 @@ input, select, button {
  }
 
  .show__layout {
+  text-decoration: none;
   font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
  }
+
+ .divider {
+  height: 1px;
+  background-color: black;
+  border: none;
+ }
+
+ label {
+  font-size: 15px;
+  font-weight: bold;
+ }
+
+ .brand {
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+ }
+
+ 
