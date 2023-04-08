@@ -15,9 +15,7 @@ def save(sneaker):
 
 
 def select_all():
-   
     sneakers = []
-
     sql = "SELECT * FROM sneakers"
     results = run_sql(sql)
 
